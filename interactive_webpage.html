@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCAA Player Template Matching</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: black;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* Background GIF container */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            animation: rotateGIFs 15s infinite;
+        }
+
+        /* Animation for rotating GIFs */
+        @keyframes rotateGIFs {
+            0% { background-image: url('GIF/6nMh.gif'); }
+            33% { background-image: url('GIF/Pr0.gif'); }
+            66% { background-image: url('GIF/VZQ2.gif'); }
+            100% { background-image: url('GIF/6nMh.gif'); }
+        }
+
+        header {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .container {
+            margin: 2rem auto;
+            max-width: 600px;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 2rem;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9);
+            color: black;
+        }
+
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <header>
+        <h1>NCAA Player Template Matcher</h1>
+    </header>
+    <div class="container">
+        <form id="player-search-form">
+            <div class="form-group">
+                <label for="player-name">Search for Player:</label>
+                <input type="text" id="player-name" name="player-name" placeholder="Enter player name..." required>
+            </div>
+            <button type="submit">Search</button>
+        </form>
+        <div class="result" id="result-container" style="display: none;">
+            <h2 id="player-template"></h2>
+            <p id="player-description"></p>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 NCAA Template Matcher. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('player-search-form');
+        const resultContainer = document.getElementById('result-container');
+        const playerTemplate = document.getElementById('player-template');
+        const playerDescription = document.getElementById('player-description');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            // Get player name from input
+            const playerName = document.getElementById('player-name').value;
+
+            // Mockup: Replace with an actual API call or model integration
+            const response = await fetch('/api/get-player-template', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: playerName })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                // Update UI with player data
+                playerTemplate.textContent = `Template: ${data.template}`;
+                playerDescription.textContent = data.description;
+                resultContainer.style.display = 'block';
+            } else {
+                alert('Player not found or an error occurred!');
+            }
+        });
+    </script>
+</body>
+</html>
