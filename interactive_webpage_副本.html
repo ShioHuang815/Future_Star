@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformative Talent Template Matching for Young Football Stars</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: black;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* Background GIF container */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            animation: rotateGIFs 15s infinite;
+        }
+
+        /* Animation for rotating GIFs */
+        @keyframes rotateGIFs {
+            0% { background-image: url('GIF/6nMh.gif'); }
+            20% { background-image: url('GIF/Pr0.gif'); }
+            40% { background-image: url('GIF/VZQ2.gif'); }
+            60% { background-image: url('GIF/6nMh.gif'); }
+            80% { background-image: url('GIF/giphy.gif'); }
+            100% { background-image: url('GIF/kick.gif'); }
+
+        }
+
+        header {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .container {
+            margin: 2rem auto;
+            max-width: 600px;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 2rem;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9);
+            color: black;
+        }
+
+        .school-list {
+            margin-top: 2rem;
+        }
+
+        .school-list button {
+            margin-top: 0.5rem;
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .school-list button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <header>
+        <h1>Transformative Talent Template Matching for Young Football Stars</h1>
+    </header>
+    <div class="container">
+        <form id="player-search-form">
+            <div class="form-group">
+                <label for="player-name">Search for Player:</label>
+                <input type="text" id="player-name" name="player-name" placeholder="Enter player name..." required>
+            </div>
+            <button type="submit">Search</button>
+        </form>
+        <div class="result" id="result-container" style="display: none;">
+            <h2 id="player-template"></h2>
+            <p id="player-description"></p>
+        </div>
+
+        <div class="school-list" id="school-list">
+            <h3>Search School Player by School:</h3>
+            <div id="school-buttons"></div>
+            <div class="result" id="school-result-container" style="display: none;">
+                <h2>Players:</h2>
+                <ul id="player-list"></ul>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 NU MLDS Huang, Shu, Zhang. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('player-search-form');
+        const resultContainer = document.getElementById('result-container');
+        const playerTemplate = document.getElementById('player-template');
+        const playerDescription = document.getElementById('player-description');
+        const schoolButtons = document.getElementById('school-buttons');
+        const schoolResultContainer = document.getElementById('school-result-container');
+        const playerList = document.getElementById('player-list');
+
+        // Event listener for player search
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            // Get player name from input
+            const playerName = document.getElementById('player-name').value;
+
+            // Mockup: Replace with an actual API call or model integration
+            const response = await fetch('/api/get-player-template', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: playerName })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                // Update UI with player data
+                playerTemplate.textContent = `Template: ${data.template}`;
+                playerDescription.textContent = data.description;
+                resultContainer.style.display = 'block';
+            } else {
+                alert('Player not found or an error occurred!');
+            }
+        });
+
+        // Schools data from CSV
+        const schools = [
+            { name: "Detroit Mercy Titans", players: ["D. Hass", "E. Wood"] },
+            { name: "Indiana Hoosiers", players: ["A. Barger", "B. Minzey", "C. Heuer", "C. Murador", "C. Smith"] },
+            { name: "LMU Lions", players: ["O. Foster"] },
+            { name: "Maryland College Park Terrapins", players: ["A. Ndrenika", "A. Nitzl", "A. Sheppela", "B. Saint Just", "C. Ebbecke"] },
+            { name: "Michigan State Spartans", players: ["B. Munson", "C. Arce", "C. Bruletti", "E. Emovon", "J. Hills"] }
+        ];
+        
+        // Populate school buttons
+        schools.forEach(school => {
+            const button = document.createElement('button');
+            button.textContent = school.name;
+            button.addEventListener('click', () => fetchSchoolPlayers(school));
+            schoolButtons.appendChild(button);
+        });
+
+        // Function to fetch players by school
+        function fetchSchoolPlayers(school) {
+            playerList.innerHTML = '';
+            school.players.forEach(player => {
+                const listItem = document.createElement('li');
+                listItem.textContent = player;
+                playerList.appendChild(listItem);
+            });
+            schoolResultContainer.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
