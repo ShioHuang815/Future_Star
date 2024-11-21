@@ -60,10 +60,7 @@ The interactive webpage consolidates insights from tabular, video, and PDF data 
 2. **Multi-Dimensional Radar Chart for Each Player**  
    Design radar charts with 5 key metrics, each featuring 4-6 normalized attributes. These metrics are weighted using a customized Gaussian-log function to evaluate on-court performance, accounting for stamina distribution over time. The function is supported by kinematic studies and relevant literature.
 
-3. **Athletic KPI Evaluation System**  
-   Employ an LLM to generate comprehensive ratings and evaluations for players, with suggested next steps across five categories: *Outstanding*, *Regular*, *Needs Improvement in Specific Areas*, *Underperformed*, and *Farewell*.
-
-4. **Intelligence Fuzzy Search System**
+3. **Intelligence Fuzzy Search System**
     An optimized webpage search system that allows flexible search inputs, accommodating full team names, nicknames, partial names, and displaying results for teams with identical names.
 
 
