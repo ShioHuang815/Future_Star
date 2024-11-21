@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Teams</title>
+    <style>
+        header h1 {
+            font-size: 3rem;
+            color:rgb(17, 63, 4);
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: rgb(97, 123, 97);
+            color: white;
+            overflow-y: auto;
+        }
+
+        .background {   
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        header {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .container {
+            margin: 2rem auto;
+            max-width: 1000px;
+            padding: 2rem;
+            background: rgba(140, 160, 136, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(230, 234, 231, 0.2);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .team {
+            text-align: center;
+            background: rgba(107, 148, 121, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .team img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .team a {
+            text-decoration: none;
+            color: white;
+        }
+
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        .team-detail {
+            margin: 2rem auto;
+            max-width: 1000px;
+            padding: 2rem;
+            background: rgba(140, 160, 136, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-detail h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .team-detail img {
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+        }
+
+        .back-to-top {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .back-to-top a {
+            text-decoration: none;
+            color: lightblue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <header>
+        <h1>School Teams</h1>
+    </header>
+    <div class="container">
+        <div class="team-grid">
+            <!-- Team Cards -->
+            <div class="team">
+                <a href="#detroit-titans">
+                    <img src="https://1000logos.net/wp-content/uploads/2021/06/Detroit-Titans-logo-768x432.png" alt="Detroit Mercy Titans Logo">
+                    <p>Detroit Mercy Titans</p>
+                </a>
+            </div>
+            <div class="team">
+                <a href="#indiana-hoosiers">
+                    <img src="https://1000logos.net/wp-content/uploads/2021/06/Indiana-Hoosiers-logo-768x432.png" alt="Indiana Hoosiers Logo">
+                    <p>Indiana Hoosiers</p>
+                </a>
+            </div>
+            <div class="team">
+                <a href="#lmu-lions">
+                    <img src="https://1000logos.net/wp-content/uploads/2021/06/Loyola-Marymount-Lions-logo-768x432.png" alt="LMU Lions Logo">
+                    <p>LMU Lions</p>
+                </a>
+            </div>
+            <div class="team">
+                <a href="#maryland-terrapins">
+                    <img src="https://1000logos.net/wp-content/uploads/2021/06/Maryland-Terrapins-logo-768x432.png" alt="Maryland College Park Terrapins Logo">
+                    <p>Maryland College Park Terrapins</p>
+                </a>
+            </div>
+            <div class="team">
+                <a href="#michigan-spartans">
+                    <img src="https://1000logos.net/wp-content/uploads/2021/07/Michigan-State-Spartans-logo-768x432.png" alt="Michigan State Spartans Logo">
+                    <p>Michigan State Spartans</p>
+                </a>
+            </div>
+            <div class="team">
+                <a href="#michigan-wolverines">
+                    <img src="https://1000logos.net/wp-content/uploads/2021/07/Michigan-Wolverines-logo-768x432.png" alt="Michigan Wolverines Logo">
+                    <p>Michigan Wolverines</p>
+                </a>
+            </div>
+            <div class="team">
+                <a href="#northwestern-wildcats">
+                    <img src="https://1000logos.net/wp-content/uploads/2021/07/Northwestern-Wildcats-Logo-768x432.png" alt="Northwestern Wildcats Logo">
+                    <p>Northwestern Wildcats</p>
+                </a>
+            </div>
+            <div class="team">
+                <a href="#ohio-buckeyes">
+                    <img src="https://1000logos.net/wp-content/uploads/2024/09/Ohio-State-Buckeyes-Logo-768x432.png" alt="Ohio State Buckeyes Logo">
+                    <p>Ohio State Buckeyes</p>
+                </a>
+            </div>
+            <div class="team">
+                <a href="#penn-lions">
+                    <img src="https://1000logos.net/wp-content/uploads/2021/07/Penn-State-Nittany-Lions-logo-768x432.png" alt="Penn State Nittany Lion Logo">
+                    <p>Penn State Nittany Lion</p>
+                </a>
+            </div>
+            <div class="team">
+                <a href="#rutgers-knights">
+                    <img src="https://1000logos.net/wp-content/uploads/2019/11/Rutgers-Scarlet-Knights-Logo-768x432.png" alt="Rutgers Scarlet Knights Logo">
+                    <p>Rutgers Scarlet Knights</p>
+                </a>
+            </div>
+            <div class="team">
+                <a href="#ucla-bruins">
+                    <img src="https://1000logos.net/wp-content/uploads/2017/11/UCLA-Logo-768x432.png" alt="UCLA Bruins Logo">
+                    <p>UCLA Bruins</p>
+                </a>
+            </div>
+            <div class="team">
+                <a href="#virginia-cavaliers">
+                    <img src="https://1000logos.net/wp-content/uploads/2022/03/Virginia-Cavaliers-Logo-768x432.png" alt="Virginia Cavaliers Logo">
+                    <p>Virginia Cavaliers</p>
+                </a>
+            </div>
+            <div class="team">
+                <a href="#washington-huskies">
+                    <img src="https://1000logos.net/wp-content/uploads/2022/03/Washington-Huskies-logo-768x461.png" alt="Washington Huskies Logo">
+                    <p>Washington Huskies</p>
+                </a>
+            </div>
+            <div class="team">
+                <a href="#wisconsin-badgers">
+                    <img src="https://1000logos.net/wp-content/uploads/2021/07/Wisconsin-Badgers-logo.png" alt="Wisconsin Badgers Logo">
+                    <p>Wisconsin Badgers</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Details -->
+    <div class="team-detail" id="detroit-titans">
+        <h2>Detroit Mercy Titans</h2>
+        <img src="https://1000logos.net/wp-content/uploads/2021/06/Detroit-Titans-logo-768x432.png" alt="Detroit Mercy Titans Logo">
+        <p>Details about the Detroit Mercy Titans team go here.</p>
+        <div class="back-to-top">
+            <a href="#">Back to Top</a>
+        </div>
+    </div>
+    <div class="team-detail" id="indiana-hoosiers">
+        <h2>Indiana Hoosiers</h2>
+        <img src="https://1000logos.net/wp-content/uploads/2021/06/Indiana-Hoosiers-logo-768x432.png" alt="Indiana Hoosiers Logo">
+        <p>Details about the Indiana Hoosiers team go here.</p>
+        <div class="back-to-top">
+            <a href="#">Back to Top</a>
+        </div>
+    </div>
+    <div class="team-detail" id="lmu-lions">
+        <h2>LMU Lions</h2>
+        <img src="https://1000logos.net/wp-content/uploads/2021/06/Loyola-Marymount-Lions-logo-768x432.png" alt="LMU Lions Logo">
+        <p>Details about the LMU Lions team go here.</p>
+        <div class="back-to-top">
+            <a href="#">Back to Top</a>
+        </div>
+    </div>
+    <div class="team-detail" id="maryland-terrapins">
+        <h2>Maryland College Park Terrapins</h2>
+        <img src="https://1000logos.net/wp-content/uploads/2021/06/Maryland-Terrapins-logo-768x432.png" alt="Maryland College Park Terrapins Logo">
+        <p>Details about the Maryland College Park Terrapins team go here.</p>
+        <div class="back-to-top">
+            <a href="#">Back to Top</a>
+        </div>
+    </div>
+    <div class="team-detail" id="michigan-spartans">
+        <h2>Michigan State Spartans</h2>
+        <img src="https://1000logos.net/wp-content/uploads/2021/07/Michigan-State-Spartans-logo-768x432.png" alt="Michigan State Spartans Logo">
+        <p>Details about the Michigan State Spartans team go here.</p>
+        <div class="back-to-top">
+            <a href="#">Back to Top</a>
+        </div>
+    </div>
+    <div class="team-detail" id="michigan-wolverines">
+        <h2>Michigan Wolverines</h2>
+        <img src="https://1000logos.net/wp-content/uploads/2021/07/Michigan-Wolverines-logo-768x432.png" alt="Michigan Wolverines Logo">
+        <p>Details about the Michigan Wolverines team go here.</p>
+        <div class="back-to-top">
+            <a href="#">Back to Top</a>
+        </div>
+    </div>
+    <div class="team-detail" id="northwestern-wildcats">
+        <h2>Northwestern Wildcats</h2>
+        <img src="https://1000logos.net/wp-content/uploads/2021/07/Northwestern-Wildcats-Logo-768x432.png" alt="Northwestern Wildcats Logo">
+        <p>Details about the Northwestern Wildcats team go here.</p>
+        <div class="back-to-top">
+            <a href="#">Back to Top</a>
+        </div>
+    </div>
+    <div class="team-detail" id="ohio-buckeyes">
+        <h2>Ohio State Buckeyes</h2>
+        <img src="https://1000logos.net/wp-content/uploads/2024/09/Ohio-State-Buckeyes-Logo-768x432.png" alt="Ohio State Buckeyes Logo">
+        <p>Details about the Ohio State Buckeyes team go here.</p>
+        <div class="back-to-top">
+            <a href="#">Back to Top</a>
+        </div>
+    </div>
+    <div class="team-detail" id="penn-lions">
+        <h2>Penn State Nittany Lion</h2>
+        <img src="https://1000logos.net/wp-content/uploads/2021/07/Penn-State-Nittany-Lions-logo-768x432.png" alt="Penn State Nittany Lion Logo">
+        <p>Details about the Penn State Nittany Lion team go here.</p>
+        <div class="back-to-top">
+            <a href="#">Back to Top</a>
+        </div>
+    </div>
+    <div class="team-detail" id="rutgers-knights">
+        <h2>Rutgers Scarlet Knights</h2>
+        <img src="https://1000logos.net/wp-content/uploads/2019/11/Rutgers-Scarlet-Knights-Logo-768x432.png" alt="Rutgers Scarlet Knights Logo">
+        <p>Details about the Rutgers Scarlet Knights team go here.</p>
+        <div class="back-to-top">
+            <a href="#">Back to Top</a>
+        </div>
+    </div>
+    <div class="team-detail" id="ucla-bruins">
+        <h2>UCLA Bruins</h2>
+        <img src="https://1000logos.net/wp-content/uploads/2017/11/UCLA-Logo-768x432.png" alt="UCLA Bruins Logo">
+        <p>Details about the UCLA Bruins team go here.</p>
+        <div class="back-to-top">
+            <a href="#">Back to Top</a>
+        </div>
+    </div>
+    <div class="team-detail" id="virginia-cavaliers">
+        <h2>Virginia Cavaliers</h2>
+        <img src="https://1000logos.net/wp-content/uploads/2022/03/Virginia-Cavaliers-Logo-768x432.png" alt="Virginia Cavaliers Logo">
+        <p>Details about the Virginia Cavaliers team go here.</p>
+        <div class="back-to-top">
+            <a href="#">Back to Top</a>
+        </div>
+    </div>
+    <div class="team-detail" id="washington-huskies">
+        <h2>Washington Huskies</h2>
+        <img src="https://1000logos.net/wp-content/uploads/2022/03/Washington-Huskies-logo-768x461.png" alt="Washington Huskies Logo">
+        <p>Details about the Washington Huskies team go here.</p>
+        <div class="back-to-top">
+            <a href="#">Back to Top</a>
+        </div>
+    </div>
+    <div class="team-detail" id="wisconsin-badgers">
+        <h2>Wisconsin Badgers</h2>
+        <img src="https://1000logos.net/wp-content/uploads/2021/07/Wisconsin-Badgers-logo.png" alt="Wisconsin Badgers Logo">
+        <p>Details about the Wisconsin Badgers team go here.</p>
+        <div class="back-to-top">
+            <a href="#">Back to Top</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 NU MLDS Huang, Shu, Zhang. All rights reserved.</p>
+    </footer>
+</body>
+</html>

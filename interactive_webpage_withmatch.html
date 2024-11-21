@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformative Talent Template Matching</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: black;
+            color: white;
+            overflow-y: auto;
+            height: 100vh;
+        }
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-size: cover;
+            background-position: center;
+            animation: rotateGIFs 15s infinite;
+        }
+        @keyframes rotateGIFs {
+            0% { background-image: url('GIF/6nMh.gif'); }
+            20% { background-image: url('GIF/Pr0.gif'); }
+            40% { background-image: url('GIF/VZQ2.gif'); }
+            60% { background-image: url('GIF/6nMh.gif'); }
+            80% { background-image: url('GIF/giphy.gif'); }
+            100% { background-image: url('GIF/kick.gif'); }
+        }
+        header {
+            text-align: center;
+            padding: 2rem;
+        }
+        .container {
+            margin: 2rem auto;
+            max-width: 800px;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 2rem;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9);
+            color: black;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .radar-chart {
+            margin-top: 1rem;
+            text-align: center;
+        }
+        .radar-chart img {
+            max-width: 90%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .closest-match {
+            margin-top: 1rem;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9);
+            color: black;
+        }
+
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: white;
+        }
+        #jump-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+
+    <script src="player_matches.js"></script>
+</head>
+<body>
+    <div class="background"></div>
+    <header>
+        <h1>Transformative Talent Template Matching</h1>
+    </header>
+    <div class="container">
+        <form id="team-search-form">
+            <div class="form-group">
+                <label for="team-name">Search by Team:</label>
+                <input type="text" id="team-name" name="team-name" placeholder="Enter team name..." required>
+            </div>
+            <button type="submit">Search</button>
+        </form>
+        <div class="result" id="result-container" style="display: none;">
+            <h2>Players:</h2>
+            <ul id="team-players"></ul>
+            <div class="radar-chart" id="radar-chart-container" style="display: none;">
+                <h2>Player Radar Chart</h2>
+                <img id="radar-chart-img" src="" alt="Radar Chart">
+            </div>
+            <!-- New Closest Match Section -->
+            <div class="closest-match" id="closest-match-container" style="display: none;">
+                <h2>Closest Professional Player Match</h2>
+                <p id="closest-match-player"></p>
+            </div>
+        </div>        
+    </div>
+
+    
+    <footer>
+        <p>&copy; 2024 NU MLDS Huang, Shu, Zhang. All rights reserved.</p>
+    </footer>
+
+    <script src="team_to_players.js"></script>
+    
+    <button id="jump-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">&#8593;</button>
+
+    <script>
+        const form = document.getElementById('team-search-form');
+        const resultContainer = document.getElementById('result-container');
+        const teamPlayers = document.getElementById('team-players');
+        const radarChartContainer = document.getElementById('radar-chart-container');
+        const radarChartImg = document.getElementById('radar-chart-img');
+        const jumpToTopButton = document.getElementById('jump-to-top');
+
+        // New variables for Closest Match section
+        const closestMatchContainer = document.getElementById('closest-match-container');
+        const closestMatchPlayer = document.getElementById('closest-match-player');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const teamName = document.getElementById('team-name').value.trim().toLowerCase();
+            let playersFound = false;
+
+            // Clear previous results
+            teamPlayers.innerHTML = '';
+            radarChartContainer.style.display = 'none';
+            closestMatchContainer.style.display = 'none';
+
+            for (let team in teamToPlayers) {
+                if (team.toLowerCase().includes(teamName)) {
+                    playersFound = true;
+                    const players = teamToPlayers[team];
+                    const teamHeading = document.createElement('h3');
+                    teamHeading.textContent = `Team: ${team}`;
+                    teamPlayers.appendChild(teamHeading);
+
+                    players.forEach(player => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = player;
+                        listItem.style.cursor = 'pointer';
+                        listItem.style.textDecoration = 'underline';
+                        listItem.addEventListener('click', () => {
+                            radarChartImg.src = `player_radar_charts/${player}.png`;
+                            radarChartImg.alt = `Radar Chart for ${player}`;
+                            radarChartContainer.style.display = 'block';
+
+                            // Display closest match professional player
+                            const professionalPlayer = playerMatches[player];
+                            if (professionalPlayer) {
+                                closestMatchPlayer.textContent = `This player is most similar to: ${professionalPlayer}`;
+                                closestMatchContainer.style.display = 'block';
+                            } else {
+                                closestMatchPlayer.textContent = "No professional player match found for this player.";
+                                closestMatchContainer.style.display = 'block';
+                            }
+                        });
+                        teamPlayers.appendChild(listItem);
+                    });
+                }
+            }
+
+            if (playersFound) {
+                resultContainer.style.display = 'block';
+            } else {
+                alert('No teams found with the given name!');
+            }
+        });
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                jumpToTopButton.style.display = 'block';
+            } else {
+                jumpToTopButton.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
