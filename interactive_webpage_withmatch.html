@@ -233,6 +233,23 @@
             background-position: center;
             animation: rotateGIFs 15s infinite;
         }
+
+        /* Style for player info in the modal */
+        #player-info {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        #player-info h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        #player-info h3 {
+            font-size: 1.5rem;
+            font-weight: normal;
+        }
     </style>    
     <!-- Include your JavaScript files here -->
     <script src="team_to_players.js"></script>
@@ -277,6 +294,11 @@
         <span class="close-button" id="close-modal">&times;</span>
         <!-- Modal content -->
         <div class="modal-content">
+            <!-- Player's name and team name -->
+            <div id="player-info">
+                <h2 id="modal-player-name"></h2>
+                <h3 id="modal-team-name"></h3>
+            </div>
             <!-- Flex container for radar chart and matches within the modal -->
             <div class="chart-match-container">
                 <div class="radar-chart" id="modal-radar-chart-container">
@@ -320,7 +342,7 @@
         form.addEventListener('submit', (event) => {
             event.preventDefault();
 
-            const teamName = document.getElementById('team-name').value.trim().toLowerCase();
+            const teamNameInput = document.getElementById('team-name').value.trim().toLowerCase();
             let playersFound = false;
 
             // Clear previous results
@@ -330,7 +352,7 @@
             professionalPlayersList.innerHTML = '';
 
             for (let team in teamToPlayers) {
-                if (team.toLowerCase().includes(teamName)) {
+                if (team.toLowerCase().includes(teamNameInput)) {
                     playersFound = true;
                     const players = teamToPlayers[team];
                     const teamHeading = document.createElement('h3');
@@ -343,6 +365,10 @@
                         listItem.style.cursor = 'pointer';
                         listItem.style.textDecoration = 'underline';
                         listItem.addEventListener('click', () => {
+                            // Set player's name and team name in modal
+                            document.getElementById('modal-player-name').textContent = player;
+                            document.getElementById('modal-team-name').textContent = `Team: ${team}`;
+
                             // Set radar chart image in modal
                             modalRadarChartImg.src = `player_radar_charts/${player}.png`;
                             modalRadarChartImg.alt = `Radar Chart for ${player}`;
