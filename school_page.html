@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Team Logos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: black;
+            color: white;
+            overflow-y: auto;
+        }
+
+        /* Background GIF container */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-size: cover;
+            background-position: center;
+        }
+
+        header {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .container {
+            margin: 2rem auto;
+            max-width: 1000px;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .team {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .team img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        /* Back to interactive page button */
+        #back-to-interactive {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #FF5722;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <header>
+        <h1>School Teams</h1>
+    </header>
+    <div class="container">
+        <div class="team-grid">
+            <!-- Team Cards -->
+            <div class="team">
+                <img src="https://1000logos.net/wp-content/uploads/2021/06/Detroit-Titans-logo-768x432.png" alt="Detroit Mercy Titans Logo">
+                <p>Detroit Mercy Titans</p>
+            </div>
+            <!-- Additional teams... -->
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 NU MLDS Huang, Shu, Zhang. All rights reserved.</p>
+    </footer>
+
+    <!-- Back to interactive page button -->
+    <button id="back-to-interactive" onclick="window.location.href='interactive_webpage.html';">&#8592;</button>
+</body>
+</html>

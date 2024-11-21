@@ -38,15 +38,15 @@
             padding: 2rem;
         }
         .container {
-            margin: 3rem auto;
+            margin: 2rem auto;
             max-width: 800px;
-            padding: 3rem;
+            padding: 2rem;
             background: rgba(0, 0, 0, 0.8);
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
         .form-group label {
             display: block;
@@ -55,19 +55,18 @@
         }
         .form-group input {
             width: 100%;
-            padding: 1rem;
-            font-size: 1.2rem;
+            padding: 0.5rem;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
         button {
             width: 100%;
-            padding: 1rem;
-            font-size: 1.2rem;
+            padding: 0.75rem;
             border: none;
             border-radius: 5px;
             background-color: #4CAF50;
             color: white;
+            font-size: 1rem;
             cursor: pointer;
         }
         button:hover {
@@ -75,7 +74,7 @@
         }
         .result {
             margin-top: 2rem;
-            padding: 1.5rem;
+            padding: 1rem;
             border: 1px solid #ddd;
             border-radius: 5px;
             background: rgba(255, 255, 255, 0.9);
@@ -83,12 +82,12 @@
             max-height: 300px;
             overflow-y: auto;
         }
-        .radar-chart, .matched-players {
+        .radar-chart {
             margin-top: 1rem;
             text-align: center;
         }
-        .radar-chart img, .matched-players ul {
-            max-width: 100%;
+        .radar-chart img {
+            max-width: 90%;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -135,10 +134,6 @@
                 <h2>Player Radar Chart</h2>
                 <img id="radar-chart-img" src="" alt="Radar Chart">
             </div>
-            <div class="matched-players" id="matched-players-container" style="display: none;">
-                <h2>Matched Players</h2>
-                <ul id="matched-players-list"></ul>
-            </div>
         </div>
     </div>
     <footer>
@@ -155,27 +150,7 @@
         const teamPlayers = document.getElementById('team-players');
         const radarChartContainer = document.getElementById('radar-chart-container');
         const radarChartImg = document.getElementById('radar-chart-img');
-        const matchedPlayersContainer = document.getElementById('matched-players-container');
-        const matchedPlayersList = document.getElementById('matched-players-list');
         const jumpToTopButton = document.getElementById('jump-to-top');
-
-        let playerMatchData = {};
-
-        // Load CSV data for matches
-        fetch('student_famous_detailed_matches.csv')
-            .then(response => response.text())
-            .then(csvText => {
-                const lines = csvText.split('\n');
-                lines.forEach(line => {
-                    const [player, matchedPlayer] = line.split(',');
-                    if (player && matchedPlayer) {
-                        if (!playerMatchData[player]) {
-                            playerMatchData[player] = [];
-                        }
-                        playerMatchData[player].push(matchedPlayer.trim());
-                    }
-                });
-            });
 
         form.addEventListener('submit', (event) => {
             event.preventDefault();
@@ -186,7 +161,6 @@
             // Clear previous results
             teamPlayers.innerHTML = '';
             radarChartContainer.style.display = 'none';
-            matchedPlayersContainer.style.display = 'none';
 
             for (let team in teamToPlayers) {
                 if (team.toLowerCase().includes(teamName)) {
@@ -202,20 +176,9 @@
                         listItem.style.cursor = 'pointer';
                         listItem.style.textDecoration = 'underline';
                         listItem.addEventListener('click', () => {
-                            // Show radar chart
                             radarChartImg.src = `player_radar_charts/${player}.png`;
                             radarChartImg.alt = `Radar Chart for ${player}`;
                             radarChartContainer.style.display = 'block';
-
-                            // Show matched players
-                            matchedPlayersList.innerHTML = '';
-                            const matchedPlayers = playerMatchData[player] || [];
-                            matchedPlayers.forEach(matchedPlayer => {
-                                const matchedListItem = document.createElement('li');
-                                matchedListItem.textContent = matchedPlayer;
-                                matchedPlayersList.appendChild(matchedListItem);
-                            });
-                            matchedPlayersContainer.style.display = matchedPlayers.length > 0 ? 'block' : 'none';
                         });
                         teamPlayers.appendChild(listItem);
                     });
