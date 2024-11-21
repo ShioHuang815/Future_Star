@@ -22,6 +22,33 @@ interactive_webpage.html: A user-friendly webpage for visualizing and interactin
 .gitignore: Specifies files and folders excluded from the version control system.
 README.md: This file, describing the project and its usage.
 
+
+
+## Player Performance Radar Charts
+
+We design a player performance matrix that can provide a visually captivating representation of player abilities, crafted to highlight strengths and areas of improvement across five distinct performance matrices. These charts are a powerful way to intuitively grasp the multifaceted attributes that contribute to a player's overall performance on the field.
+
+### The Five Matrices
+
+1. **Attacking Contribution**: This matrix captures offensive prowess, including goals, assists, shots on target, expected assists (xA), progressive runs, and crossing capabilities. It reflects the player's ability to contribute actively to scoring opportunities.
+
+2. **Defensive Capability**: This matrix measures a player's defensive tenacity, encompassing key metrics like defensive duels, interceptions, tackles, and recoveries. It showcases the player's effectiveness in defending and regaining possession.
+
+3. **Passing & Playmaking**: This matrix reveals a player's ability to move the ball efficiently and create scoring chances. It includes metrics such as total passes, forward passes, passes into the final third, and shot assists, emphasizing creativity and playmaking skills.
+
+4. **Duels & Physical Presence**: This matrix focuses on a player's ability to dominate physical contests, including aerial and offensive duels, as well as fouls drawn and touches inside the box. It represents the player's assertiveness and ability to impose themselves in physical battles.
+
+5. **Discipline & Goalkeeping**: This matrix provides a holistic view of discipline and goalkeeping capabilities, tracking fouls, yellow/red cards, as well as goalkeeping stats like saves and reflex saves. It offers insight into how well a player maintains composure and contributes defensively as a goalkeeper.
+
+Each radar chart not only visualizes these metrics but also compares individual player performance to the baseline average, providing a clear, comparative perspective that helps understand the unique qualities of each player.
+
+
+
+
+
+
+
+
 ## Key Features
 
 Player Profiling: Detailed analysis of young players using performance metrics like goals, assists, passes, etc.
