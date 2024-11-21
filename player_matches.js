@@ -234,7 +234,7 @@ var playerMatches = {
     "T. Gilej": "Rodri, Sandro Tonali",
     "T. Glassberg": "Phil Foden, Sandro Tonali",
     "T. Karumanchi": "Rodri, Rúben Dias",
-    "T. Mihali": "Mohamed Salah, Sadio Mané",
+    "T. Mihalić": "Mohamed Salah, Sadio Mané",
     "T. Raimbault": "Phil Foden, Son Heung-min",
     "T. Ratoviz": "Leroy Sané, Rodrygo",
     "T. Villa": "David Alaba, Raphaël Varane",

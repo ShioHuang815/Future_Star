@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags and title -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transformative Talent Template Matching</title>
+
+    <!-- Styles -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -95,11 +98,26 @@
             margin-top: 1rem;
             padding: 1rem;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 10px;
             background: rgba(255, 255, 255, 0.9);
             color: black;
+            text-align: center;
         }
-
+        /* Styles for professional players list */
+        .professional-player {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .professional-player img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .professional-player p {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
         footer {
             margin-top: 2rem;
             text-align: center;
@@ -123,7 +141,10 @@
         }
     </style>
 
+    <!-- Include your JavaScript files here -->
+    <script src="team_to_players.js"></script>
     <script src="player_matches.js"></script>
+    <script src="professional_player_images.js"></script>
 </head>
 <body>
     <div class="background"></div>
@@ -145,23 +166,22 @@
                 <h2>Player Radar Chart</h2>
                 <img id="radar-chart-img" src="" alt="Radar Chart">
             </div>
-            <!-- New Closest Match Section -->
+            <!-- Updated Closest Match Section -->
             <div class="closest-match" id="closest-match-container" style="display: none;">
                 <h2>Closest Professional Player Match</h2>
-                <p id="closest-match-player"></p>
+                <div id="professional-players-list"></div>
             </div>
-        </div>        
+        </div>
     </div>
 
-    
     <footer>
         <p>&copy; 2024 NU MLDS Huang, Shu, Zhang. All rights reserved.</p>
     </footer>
 
-    <script src="team_to_players.js"></script>
-    
+    <!-- Scroll to top button -->
     <button id="jump-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">&#8593;</button>
 
+    <!-- Your JavaScript code -->
     <script>
         const form = document.getElementById('team-search-form');
         const resultContainer = document.getElementById('result-container');
@@ -170,9 +190,9 @@
         const radarChartImg = document.getElementById('radar-chart-img');
         const jumpToTopButton = document.getElementById('jump-to-top');
 
-        // New variables for Closest Match section
+        // Updated variables for Closest Match section
         const closestMatchContainer = document.getElementById('closest-match-container');
-        const closestMatchPlayer = document.getElementById('closest-match-player');
+        const professionalPlayersList = document.getElementById('professional-players-list');
 
         form.addEventListener('submit', (event) => {
             event.preventDefault();
@@ -184,6 +204,7 @@
             teamPlayers.innerHTML = '';
             radarChartContainer.style.display = 'none';
             closestMatchContainer.style.display = 'none';
+            professionalPlayersList.innerHTML = '';
 
             for (let team in teamToPlayers) {
                 if (team.toLowerCase().includes(teamName)) {
@@ -203,13 +224,44 @@
                             radarChartImg.alt = `Radar Chart for ${player}`;
                             radarChartContainer.style.display = 'block';
 
-                            // Display closest match professional player
-                            const professionalPlayer = playerMatches[player];
-                            if (professionalPlayer) {
-                                closestMatchPlayer.textContent = `This player is most similar to: ${professionalPlayer}`;
+                            // Display closest match professional players
+                            const professionalPlayerString = playerMatches[player];
+                            professionalPlayersList.innerHTML = ''; // Clear previous content
+
+                            if (professionalPlayerString) {
+                                const professionalPlayers = professionalPlayerString.split(',').map(name => name.trim());
                                 closestMatchContainer.style.display = 'block';
+
+                                professionalPlayers.forEach(proPlayerName => {
+                                    // Create a container for each professional player
+                                    const proPlayerContainer = document.createElement('div');
+                                    proPlayerContainer.classList.add('professional-player');
+
+                                    // Create and append the professional player's name
+                                    const proPlayerNameElement = document.createElement('p');
+                                    proPlayerNameElement.textContent = proPlayerName;
+                                    proPlayerContainer.appendChild(proPlayerNameElement);
+
+                                    // Display professional player's image
+                                    const imageUrl = professionalPlayerImages[proPlayerName];
+                                    if (imageUrl) {
+                                        const professionalPlayerImg = document.createElement('img');
+                                        professionalPlayerImg.src = imageUrl;
+                                        professionalPlayerImg.alt = proPlayerName;
+                                        professionalPlayerImg.style.maxWidth = '100%';
+                                        professionalPlayerImg.style.borderRadius = '10px';
+                                        professionalPlayerImg.style.marginBottom = '1rem';
+                                        proPlayerContainer.appendChild(professionalPlayerImg);
+                                    } else {
+                                        // If no image is found, you can display a placeholder or skip the image
+                                        // For example, you can display a default image or leave it blank
+                                    }
+
+                                    // Append the professional player container to the list
+                                    professionalPlayersList.appendChild(proPlayerContainer);
+                                });
                             } else {
-                                closestMatchPlayer.textContent = "No professional player match found for this player.";
+                                professionalPlayersList.innerHTML = "<p>No professional player match found for this player.</p>";
                                 closestMatchContainer.style.display = 'block';
                             }
                         });
