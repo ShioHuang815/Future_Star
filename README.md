@@ -23,36 +23,32 @@ interactive_webpage.html: A user-friendly webpage for visualizing and interactin
 README.md: This file, describing the project and its usage.
 
 
-## Deliverable Key Features
-
-## Insights
+## Deliverable Key Features & Insights
 
 - The solution ensures players are trained to professional benchmarks and allows data-driven tactical adjustments to improve game outcomes.
 - Detailed radar charts and KPI evaluations highlight specific areas for improvement, offering structured feedback and next steps.
 - The webpage integrates multi-format data into a single platform, providing clarity and ease of use for the coaching staff.
 - Players' on-court stamina patterns and template-match scores directly highlight training areas for improved success in the next season.
 
-## Enhancing Talent Development through AI-Powered Comparisons
+1. **Enhancing Talent Development through AI-Powered Comparisons**
 
 The K-Transformer Model bridges the skill gap between college players and professional benchmarks. By providing precise player-template matching, it enables Northwestern coaches to tailor development programs that align with professional standards, offering actionable pathways for improvement.
 
-## Actionable Player Analytics for Tactical Advantage
+2. **Actionable Player Analytics for Tactical Advantage**
 
 Multi-dimensional radar charts offer a holistic view of player performance, integrating stamina distribution and other kinematic insights. These charts allow coaches to identify individual strengths and weaknesses at a granular level, leading to informed tactical decisions.
 
-## Streamlined Decision-Making with Performance Summaries
+3. **Streamlined Decision-Making with Performance Summaries**
 
 The Athletic KPI Evaluation System employs LLM-generated reports to provide coaches with easy-to-understand ratings and actionable next steps for players. This system helps coaches allocate resources efficiently by focusing on high-potential players or identifying areas for improvement.
 
-## Maximizing Resource Efficiency
+4. **Maximizing Resource Efficiency**
 
 With limited resources and a competitive conference, the solution reduces the time required for manual player evaluations while enhancing decision accuracy, allowing the coaching staff to "do more with less."
 
-## Data Accessibility for Coaches
+5. **Data Accessibility for Coaches**
 
 The interactive webpage consolidates insights from tabular, video, and PDF data into an intuitive interface. By translating complex data into actionable insights, the webpage empowers coaches to make evidence-based decisions, improving data accessibility and usability.
-
-
 
 
 
