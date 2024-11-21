@@ -23,6 +23,54 @@ interactive_webpage.html: A user-friendly webpage for visualizing and interactin
 README.md: This file, describing the project and its usage.
 
 
+## Deliverable Key Features
+
+## Insights
+
+- The solution ensures players are trained to professional benchmarks and allows data-driven tactical adjustments to improve game outcomes.
+- Detailed radar charts and KPI evaluations highlight specific areas for improvement, offering structured feedback and next steps.
+- The webpage integrates multi-format data into a single platform, providing clarity and ease of use for the coaching staff.
+- Players' on-court stamina patterns and template-match scores directly highlight training areas for improved success in the next season.
+
+## Enhancing Talent Development through AI-Powered Comparisons
+
+The K-Transformer Model bridges the skill gap between college players and professional benchmarks. By providing precise player-template matching, it enables Northwestern coaches to tailor development programs that align with professional standards, offering actionable pathways for improvement.
+
+## Actionable Player Analytics for Tactical Advantage
+
+Multi-dimensional radar charts offer a holistic view of player performance, integrating stamina distribution and other kinematic insights. These charts allow coaches to identify individual strengths and weaknesses at a granular level, leading to informed tactical decisions.
+
+## Streamlined Decision-Making with Performance Summaries
+
+The Athletic KPI Evaluation System employs LLM-generated reports to provide coaches with easy-to-understand ratings and actionable next steps for players. This system helps coaches allocate resources efficiently by focusing on high-potential players or identifying areas for improvement.
+
+## Maximizing Resource Efficiency
+
+With limited resources and a competitive conference, the solution reduces the time required for manual player evaluations while enhancing decision accuracy, allowing the coaching staff to "do more with less."
+
+## Data Accessibility for Coaches
+
+The interactive webpage consolidates insights from tabular, video, and PDF data into an intuitive interface. By translating complex data into actionable insights, the webpage empowers coaches to make evidence-based decisions, improving data accessibility and usability.
+
+
+
+
+
+## Functional Key Features
+
+1. **K-Transformer Model for Player Template Matching**  
+    Leverage an unsupervised ML approach aidded with a neural network autoencoder, enhanced with a customized loss function, to precisely match school players with professional templates, effectively bridging the gap between emerging talent and elite performance standards, and unlocking their limitless future potential.
+
+2. **Multi-Dimensional Radar Chart for Each Player**  
+   Design radar charts with 5 key metrics, each featuring 4-6 normalized attributes. These metrics are weighted using a customized Gaussian-log function to evaluate on-court performance, accounting for stamina distribution over time. The function is supported by kinematic studies and relevant literature.
+
+3. **Athletic KPI Evaluation System**  
+   Employ an LLM to generate comprehensive ratings and evaluations for players, with suggested next steps across five categories: *Outstanding*, *Regular*, *Needs Improvement in Specific Areas*, *Underperformed*, and *Farewell*.
+
+4. **Intelligence Fuzzy Search System**
+    An optimized webpage search system that allows flexible search inputs, accommodating full team names, nicknames, partial names, and displaying results for teams with identical names.
+
+
 
 ## Player Performance Radar Charts
 
@@ -41,11 +89,6 @@ We design a player performance matrix that can provide a visually captivating re
 5. **Discipline & Goalkeeping**: This matrix provides a holistic view of discipline and goalkeeping capabilities, tracking fouls, yellow/red cards, as well as goalkeeping stats like saves and reflex saves. It offers insight into how well a player maintains composure and contributes defensively as a goalkeeper.
 
 Each radar chart not only visualizes these metrics but also compares individual player performance to the baseline average, providing a clear, comparative perspective that helps understand the unique qualities of each player.
-
-
-
-
-
 
 
 
